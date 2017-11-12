@@ -4,16 +4,16 @@ require_relative 'phrases'
 
 Telegram::Bot::Client.run(Token.get) do |bot|
   bot.listen do |message|
-    case message.text
-    when '/start@paysagebot'
+    case
+    when message.text.include?('/start')
       bot.api.sendMessage(
         chat_id: message.chat.id,
-        text: Phrases.getGreetings[rand(Phrases.getGreetings.length)]
+        text: Phrases.getGreetings.sample
       )
-    when '/pidor@paysagebot'
+    when message.text.include?('/pidor')
       bot.api.sendMessage(
         chat_id: message.chat.id,
-        text: Phrases.getPidor[rand(Phrases.getPidor.length)]
+        text: Phrases.getPidor.sample
       )
     end
   end

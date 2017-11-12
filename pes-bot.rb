@@ -15,6 +15,21 @@ Telegram::Bot::Client.run(Token.get) do |bot|
         chat_id: message.chat.id,
         text: Phrases.getPidor.sample
       )
+    when message.text.include?('Пэс')
+      bot.api.sendMessage(
+        chat_id: message.chat.id,
+        text: Phrases.getRandom.sample
+      )
+    when message.text.include?('joined the group via invite link')
+      bot.api.sendMessage(
+        chat_id: message.chat.id,
+        text: Phrases.getNewMembers.sample
+      )
+    when message.text.include?('left the group')
+      bot.api.sendMessage(
+        chat_id: message.chat.id,
+        text: Phrases.getLeftMembers.sample
+      )
     end
   end
 end

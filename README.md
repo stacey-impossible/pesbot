@@ -2,4 +2,5 @@
 
 ## Description
 
-Just rood bot, who cusses ¯\_(ツ)_/¯
+Rood telegram bot
+http://t.me/paysagebot
